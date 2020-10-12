@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
 export const LoginScreen = ({history}) => { //se usa history para traer las funciones de navegacicon
 
+    const {  dispach } = useContext(AuthContext);
+
     const handleLogin = () => {
         //history.push('/'); //te lleva a la ruta principal
-        history.replace('/'); //esto hace que no puedas volver atrás la pagina
+        // history.replace('/'); //esto hace que no puedas volver atrás la pagina
+
+        const lastPath = localStorage.getItem('lastPath') || '/';
+
+
+        const user={
+            name:'Mariano'
+        };
+        const action = {
+            type: types.login,
+            payload: user
+        };
+        dispach (action);
+
+        history.replace(lastPath);
 
     };
 
