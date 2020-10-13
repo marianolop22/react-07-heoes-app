@@ -4,7 +4,7 @@ import { types } from '../../types/types';
 
 export const LoginScreen = ({history}) => { //se usa history para traer las funciones de navegacicon
 
-    const {  dispach } = useContext(AuthContext);
+    const { dispatch } = useContext(AuthContext);
 
     const handleLogin = () => {
         //history.push('/'); //te lleva a la ruta principal
@@ -20,7 +20,7 @@ export const LoginScreen = ({history}) => { //se usa history para traer las func
             type: types.login,
             payload: user
         };
-        dispach (action);
+        dispatch (action);
 
         history.replace(lastPath);
 

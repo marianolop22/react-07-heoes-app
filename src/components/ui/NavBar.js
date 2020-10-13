@@ -5,7 +5,7 @@ import { types } from '../../types/types';
 
 export const Navbar = () => {
 
-    const {user:{name}, dispach} = useContext(AuthContext);
+    const {user:{name}, dispatch} = useContext(AuthContext);
     const history = useHistory();
 
     const handleLogout = () => {
@@ -13,7 +13,7 @@ export const Navbar = () => {
         const action = {
             type: types.logout
         };
-        dispach(action);
+        dispatch(action);
         history.replace('/login');
     };
 
